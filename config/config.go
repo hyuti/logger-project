@@ -9,17 +9,21 @@ import (
 type (
 	// Config -.
 	Config struct {
-		App  `yaml:"app"`
-		HTTP `yaml:"http"`
-		Log  `yaml:"logger"`
-		PG   `yaml:"postgres"`
-		LoginUseCase
+		App   `yaml:"app"`
+		HTTP  `yaml:"http"`
+		Log   `yaml:"logger"`
+		Admin `yaml:"admin"`
 	}
 
 	// App -.
 	App struct {
 		Name    string `env-required:"true" yaml:"name"    env:"APP_NAME"`
 		Version string `env-required:"true" yaml:"version" env:"APP_VERSION"`
+	}
+
+	Admin struct {
+		Username string `env-required:"true" yaml:"username" env:"USERNAME"`
+		Password string `env-required:"true" yaml:"password" env:"PASSWORD"`
 	}
 
 	// HTTP -.
@@ -30,17 +34,6 @@ type (
 	// Log -.
 	Log struct {
 		Level string `env-required:"true" yaml:"log_level" env:"LOG_LEVEL"`
-	}
-
-	// PG -.
-	PG struct {
-		PoolMax int    `env-required:"true" yaml:"pool_max" env:"PG_POOL_MAX" env-default:"90"`
-		URL     string `env-required:"true"                 env:"PG_URL"`
-	}
-
-	// Usecases.
-	LoginUseCase struct {
-		Secret string `env-required:"true" env:"LOGIN_USECASE_SECRET"`
 	}
 )
 

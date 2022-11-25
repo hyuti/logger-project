@@ -31,3 +31,6 @@ ent-clean-template
 
 .envs/.production/*
 !.envs/.production/*.sample
+
+# local data
+.data/
