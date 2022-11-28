@@ -10,14 +10,6 @@ COPY --from=modules /go/pkg /go/pkg
 COPY . /app
 WORKDIR /app
 
-# createuser cmd
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
-    go build -o /bin/createuser ./cmd/createuser
-
-# migrate cmd
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
-    go build -o /bin/migrate ./cmd/migrate
-
 # app cmd
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
     go build -o /bin/app .
@@ -32,8 +24,6 @@ RUN apt-get update \
 WORKDIR /
 
 COPY --from=builder /bin/app /app
-COPY --from=builder /bin/migrate /migrate
-COPY --from=builder /bin/createuser /createuser
 COPY --from=builder /app/config /config
 COPY --from=builder /app/locales /locales
 
