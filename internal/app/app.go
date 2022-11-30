@@ -6,7 +6,10 @@ import (
 
 	"github.com/TcMits/ent-clean-template/cmd/createuser"
 	"github.com/TcMits/ent-clean-template/config"
+	"github.com/TcMits/ent-clean-template/internal/collection"
 	v1 "github.com/TcMits/ent-clean-template/internal/controller/http/v1"
+
+	_ "github.com/TcMits/ent-clean-template/migrations"
 	"github.com/TcMits/ent-clean-template/pkg/infrastructure/logger"
 	"github.com/spf13/cobra"
 )
@@ -27,6 +30,7 @@ func Run(cfg *config.Config) {
 	})
 
 	v1.RegisterV1HTTPServices(handler, l)
+	collection.RegisterCollections(handler, l)
 
 	if err := handler.Start(); err != nil {
 		l.Fatal(fmt.Errorf("app - Run - handler.Start: %w", err))

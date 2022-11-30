@@ -15,8 +15,10 @@ require (
 	github.com/jackc/pgx/v4 v4.17.0
 	github.com/kataras/iris/v12 v12.2.0-beta5.0.20221020081905-bdceab934246
 	github.com/nicksnyder/go-i18n/v2 v2.2.1
+	github.com/pocketbase/dbx v1.7.0
 	github.com/pocketbase/pocketbase v0.8.0
 	github.com/rs/zerolog v1.27.0
+	github.com/spf13/cobra v1.6.1
 	github.com/stretchr/testify v1.8.1
 	go.beyondstorage.io/services/memory v0.4.0
 	go.beyondstorage.io/v5 v5.0.0
@@ -124,14 +126,12 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pelletier/go-toml v1.9.4 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/pocketbase/dbx v1.7.0 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20220927061507-ef77025ab5aa // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/schollz/closestmatch v2.1.0+incompatible // indirect
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/spf13/cast v1.5.0 // indirect
-	github.com/spf13/cobra v1.6.1 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/tdewolff/minify/v2 v2.12.4 // indirect
 	github.com/tdewolff/parse/v2 v2.6.4 // indirect
