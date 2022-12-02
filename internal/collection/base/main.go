@@ -1,6 +1,8 @@
 package base
 
 import (
+	"fmt"
+
 	"github.com/TcMits/ent-clean-template/internal/collection/permission"
 	"github.com/TcMits/ent-clean-template/pkg/infrastructure/logger"
 	"github.com/pocketbase/pocketbase"
@@ -48,11 +50,30 @@ func getOrCreateCollectionByName(app *pocketbase.PocketBase, name *string) (*mod
 	return collection, nil
 }
 
+func runValidation(input *CollectionInput) error {
+	st := map[string]bool{}
+	for _, f := range input.Fields {
+		if f.Id == "" {
+			return fmt.Errorf("%s schema field:id can not be empty string", f.Name)
+		}
+		_, ok := st[f.Id]
+		if ok {
+			return fmt.Errorf("%s schema field:id must be unique", f.Name)
+		}
+		st[f.Id] = true
+	}
+	return nil
+}
+
 func NewCollection(
 	app *pocketbase.PocketBase,
 	l logger.Interface,
 	input *CollectionInput,
 ) error {
+	err := runValidation(input)
+	if err != nil {
+		return err
+	}
 	collection, err := getOrCreateCollectionByName(app, &input.Name)
 	if err != nil {
 		return err

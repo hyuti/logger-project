@@ -28,9 +28,10 @@ func RegisterCollections(
 		if len(errs) > 0 {
 			errAsStr := ""
 			for _, e := range errs {
+				errAsStr += " - "
 				errAsStr += e.Error()
 			}
-			l.Fatal("internal.collection.RegisterCollections: %s", errAsStr)
+			l.Fatal("internal.collection.RegisterCollections:%s", errAsStr)
 		}
 		return nil
 	})
