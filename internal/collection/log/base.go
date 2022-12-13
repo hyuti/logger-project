@@ -1,7 +1,9 @@
 package log
 
 import (
+	"github.com/TcMits/ent-clean-template/config"
 	"github.com/TcMits/ent-clean-template/internal/collection/base"
+	"github.com/TcMits/ent-clean-template/internal/collection/permission"
 	"github.com/pocketbase/pocketbase/models/schema"
 	"github.com/pocketbase/pocketbase/tools/types"
 )
@@ -11,9 +13,10 @@ const (
 	maxStatusCode float64 = 599
 )
 
-func defaultLogCollection() *base.CollectionInput {
+func defaultLogCollection(cfg *config.Config) *base.CollectionInput {
 	input := base.DefaultCollectionInput()
 	input.Name = "default_log"
+	input.CreateRule = permission.AllowAny
 	input.Fields = []*schema.SchemaField{
 		{
 			Id:       "id_method",

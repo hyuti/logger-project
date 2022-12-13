@@ -4,14 +4,13 @@ package app
 import (
 	"fmt"
 
-	"github.com/TcMits/ent-clean-template/cmd/createuser"
+	"github.com/TcMits/ent-clean-template/cmd"
 	"github.com/TcMits/ent-clean-template/config"
 	"github.com/TcMits/ent-clean-template/internal/collection"
 	v1 "github.com/TcMits/ent-clean-template/internal/controller/http/v1"
 
 	_ "github.com/TcMits/ent-clean-template/migrations"
 	"github.com/TcMits/ent-clean-template/pkg/infrastructure/logger"
-	"github.com/spf13/cobra"
 )
 
 // Run creates objects via constructors.
@@ -23,14 +22,10 @@ func Run(cfg *config.Config) {
 	// HTTP Server
 	handler := v1.NewHandler()
 
-	// Register commands
-	handler.RootCmd.AddCommand(&cobra.Command{
-		Use: "createadmin",
-		Run: createuser.CreateUser(handler, cfg),
-	})
-
+	cmd.RegisterCMD(handler, l, cfg)
 	v1.RegisterV1HTTPServices(handler, l)
-	collection.RegisterCollections(handler, l)
+	collection.RegisterCollections(handler, l, cfg)
+	collection.RegisterValidation(handler, l, cfg)
 
 	if err := handler.Start(); err != nil {
 		l.Fatal(fmt.Errorf("app - Run - handler.Start: %w", err))

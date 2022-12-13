@@ -14,6 +14,7 @@ require (
 	github.com/ilyakaznacheev/cleanenv v1.4.0
 	github.com/jackc/pgx/v4 v4.17.0
 	github.com/kataras/iris/v12 v12.2.0-beta5.0.20221020081905-bdceab934246
+	github.com/labstack/echo/v5 v5.0.0-20220201181537-ed2888cfa198
 	github.com/nicksnyder/go-i18n/v2 v2.2.1
 	github.com/pocketbase/dbx v1.7.0
 	github.com/pocketbase/pocketbase v0.8.0
@@ -112,7 +113,6 @@ require (
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
 	github.com/kevinburke/go-bindata v3.22.0+incompatible // indirect
 	github.com/klauspost/compress v1.15.11 // indirect
-	github.com/labstack/echo/v5 v5.0.0-20220201181537-ed2888cfa198 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/mailgun/raymond/v2 v2.0.47 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect

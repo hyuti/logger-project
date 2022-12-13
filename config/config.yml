@@ -1,6 +1,7 @@
 app:
   name: 'ent-clean-template'
   version: '1.0.0'
+  api_key: 'dummy'
 
 http:
   port: '8080'
