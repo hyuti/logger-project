@@ -7,12 +7,12 @@ import (
 	"github.com/pocketbase/pocketbase/core"
 )
 
-func NewTheHillAdminLogCollection(
+func NewTheHillStoreLogCollection(
 	app core.App,
 	l logger.Interface,
 	cfg *config.Config,
 ) error {
 	input := defaultLogCollection(cfg)
-	input.Name = cfg.TheHillAdminProject.Name
+	input.Name = cfg.TheHillStoreProject.Name
 	return base.NewCollection(app, l, input)
 }

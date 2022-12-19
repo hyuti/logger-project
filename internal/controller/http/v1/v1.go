@@ -26,13 +26,9 @@ func NewHandler() *pocketbase.PocketBase {
 // @host localhost:8080
 // @BasePath /api/v1
 func RegisterV1HTTPServices(
-	handler *pocketbase.PocketBase,
+	handler core.App,
 	// adding more usecases here
 	// logger
 	l logger.Interface,
 ) {
-	handler.OnBeforeServe().Add(func(e *core.ServeEvent) error {
-
-		return nil
-	})
 }

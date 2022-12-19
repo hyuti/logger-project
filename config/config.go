@@ -9,10 +9,14 @@ import (
 type (
 	// Config -.
 	Config struct {
-		App   `yaml:"app"`
-		HTTP  `yaml:"http"`
-		Log   `yaml:"logger"`
-		Admin `yaml:"admin"`
+		App                    `yaml:"app"`
+		HTTP                   `yaml:"http"`
+		Log                    `yaml:"logger"`
+		Admin                  `yaml:"admin"`
+		Schedule               `yaml:"schedule"`
+		TheHillAdminProject    `yaml:"the_hill_admin"`
+		TheHillCustomerProject `yaml:"the_hill_customer"`
+		TheHillStoreProject    `yaml:"the_hill_store"`
 	}
 
 	// App -.
@@ -35,6 +39,25 @@ type (
 	// Log -.
 	Log struct {
 		Level string `env-required:"true" yaml:"log_level" env:"LOG_LEVEL"`
+	}
+
+	Schedule struct {
+		Period int `env-required:"true" env:"SCHEDULE_PERIOD"`
+	}
+
+	TheHillAdminProject struct {
+		Name           string `env-required:"true" yaml:"name" env:"THE_HILL_ADMIN_NAME"`
+		AmountToDelete int    `env-required:"true" yaml:"amount" env:"THE_HILL_ADMIN_AMOUNT_TO_DELETE"`
+	}
+
+	TheHillCustomerProject struct {
+		Name           string `env-required:"true" yaml:"name" env:"THE_HILL_CUSTOMER_NAME"`
+		AmountToDelete int    `env-required:"true" yaml:"amount" env:"THE_HILL_CUSTOMER_AMOUNT_TO_DELETE"`
+	}
+
+	TheHillStoreProject struct {
+		Name           string `env-required:"true" yaml:"name" env:"THE_HILL_STORE_NAME"`
+		AmountToDelete int    `env-required:"true" yaml:"amount" env:"THE_HILL_STORE_AMOUNT_TO_DELETE"`
 	}
 )
 

@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	minStatusCode float64 = 200
+	minStatusCode float64 = 100
 	maxStatusCode float64 = 599
 )
 

@@ -8,6 +8,8 @@ import (
 	"github.com/TcMits/ent-clean-template/config"
 	"github.com/TcMits/ent-clean-template/internal/collection"
 	v1 "github.com/TcMits/ent-clean-template/internal/controller/http/v1"
+	"github.com/TcMits/ent-clean-template/internal/hook"
+	"github.com/pocketbase/pocketbase/core"
 
 	_ "github.com/TcMits/ent-clean-template/migrations"
 	"github.com/TcMits/ent-clean-template/pkg/infrastructure/logger"
@@ -16,17 +18,19 @@ import (
 // Run creates objects via constructors.
 func Run(cfg *config.Config) {
 	l := logger.New(cfg.Log.Level)
-
-	// repository
-
 	// HTTP Server
 	handler := v1.NewHandler()
 
 	cmd.RegisterCMD(handler, l, cfg)
-	v1.RegisterV1HTTPServices(handler, l)
-	collection.RegisterCollections(handler, l, cfg)
-	collection.RegisterValidation(handler, l, cfg)
-
+	handler.OnRecordBeforeCreateRequest().Add(func(e *core.RecordCreateEvent) error {
+		return collection.Validate(e.HttpContext, e.Record, l, cfg)
+	})
+	handler.OnBeforeServe().Add(func(e *core.ServeEvent) error {
+		collection.RegisterCollections(e.App, l, cfg)
+		v1.RegisterV1HTTPServices(e.App, l)
+		hook.RegisterHook(e.App, l, cfg)
+		return nil
+	})
 	if err := handler.Start(); err != nil {
 		l.Fatal(fmt.Errorf("app - Run - handler.Start: %w", err))
 	}

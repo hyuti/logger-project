@@ -5,7 +5,7 @@ import (
 
 	"github.com/TcMits/ent-clean-template/internal/collection/permission"
 	"github.com/TcMits/ent-clean-template/pkg/infrastructure/logger"
-	"github.com/pocketbase/pocketbase"
+	"github.com/pocketbase/pocketbase/core"
 	"github.com/pocketbase/pocketbase/forms"
 	"github.com/pocketbase/pocketbase/models"
 	"github.com/pocketbase/pocketbase/models/schema"
@@ -42,7 +42,7 @@ func DefaultCollectionInput() *CollectionInput {
 	}
 }
 
-func getOrCreateCollectionByName(app *pocketbase.PocketBase, name *string) (*models.Collection, error) {
+func getOrCreateCollectionByName(app core.App, name *string) (*models.Collection, error) {
 	collection, _ := app.Dao().FindCollectionByNameOrId(*name)
 	if collection == nil {
 		collection = new(models.Collection)
@@ -66,7 +66,7 @@ func runValidation(input *CollectionInput) error {
 }
 
 func NewCollection(
-	app *pocketbase.PocketBase,
+	app core.App,
 	l logger.Interface,
 	input *CollectionInput,
 ) error {
