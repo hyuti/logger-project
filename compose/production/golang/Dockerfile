@@ -24,8 +24,7 @@ RUN apt-get update \
 WORKDIR /
 
 COPY ./compose/production/golang/start /start
-RUN sed -i 's/\r$//g' /start
-RUN chmod +x /start
+RUN sed -i 's/\r$//g' /start && chmod +x /start
 
 COPY --from=builder /bin/app /app
 COPY --from=builder /app/config /config
