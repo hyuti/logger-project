@@ -1,6 +1,7 @@
 app:
   name: 'ent-clean-template'
   version: '1.0.0'
+  api_key: 'dummy'
 
 http:
   port: '8080'
@@ -11,3 +12,15 @@ logger:
 admin:
   username: 'admin@gmail.com'
   password: '0123456789'
+
+the_hill_admin:
+  name: 'the_hill_admin'
+  amount: 10
+
+the_hill_customer:
+  name: 'the_hill_customer'
+  amount: 10
+
+the_hill_store:
+  name: 'the_hill_store'
+  amount: 10

@@ -4,30 +4,33 @@ package app
 import (
 	"fmt"
 
-	"github.com/TcMits/ent-clean-template/cmd/createuser"
+	"github.com/TcMits/ent-clean-template/cmd"
 	"github.com/TcMits/ent-clean-template/config"
+	"github.com/TcMits/ent-clean-template/internal/collection"
 	v1 "github.com/TcMits/ent-clean-template/internal/controller/http/v1"
+	"github.com/TcMits/ent-clean-template/internal/hook"
+	"github.com/pocketbase/pocketbase/core"
+
+	_ "github.com/TcMits/ent-clean-template/migrations"
 	"github.com/TcMits/ent-clean-template/pkg/infrastructure/logger"
-	"github.com/spf13/cobra"
 )
 
 // Run creates objects via constructors.
 func Run(cfg *config.Config) {
 	l := logger.New(cfg.Log.Level)
-
-	// repository
-
 	// HTTP Server
 	handler := v1.NewHandler()
 
-	// Register commands
-	handler.RootCmd.AddCommand(&cobra.Command{
-		Use: "createadmin",
-		Run: createuser.CreateUser(handler, cfg),
+	cmd.RegisterCMD(handler, l, cfg)
+	handler.OnRecordBeforeCreateRequest().Add(func(e *core.RecordCreateEvent) error {
+		return collection.Validate(e.HttpContext, e.Record, l, cfg)
 	})
-
-	v1.RegisterV1HTTPServices(handler, l)
-
+	handler.OnBeforeServe().Add(func(e *core.ServeEvent) error {
+		collection.RegisterCollections(e.App, l, cfg)
+		v1.RegisterV1HTTPServices(e.App, l)
+		hook.RegisterHook(e.App, l, cfg)
+		return nil
+	})
 	if err := handler.Start(); err != nil {
 		l.Fatal(fmt.Errorf("app - Run - handler.Start: %w", err))
 	}

@@ -6,17 +6,20 @@ require (
 	entgo.io/contrib v0.3.4
 	entgo.io/ent v0.11.5-0.20221031135557-521f9b57bc3d
 	github.com/bluele/factory-go v0.0.1
+	github.com/go-co-op/gocron v1.18.0
 	github.com/go-ozzo/ozzo-validation v3.6.0+incompatible
 	github.com/go-playground/validator/v10 v10.10.0
 	github.com/golang-jwt/jwt/v4 v4.4.2
-	github.com/golang/mock v1.6.0
 	github.com/google/uuid v1.3.0
 	github.com/ilyakaznacheev/cleanenv v1.4.0
 	github.com/jackc/pgx/v4 v4.17.0
 	github.com/kataras/iris/v12 v12.2.0-beta5.0.20221020081905-bdceab934246
+	github.com/labstack/echo/v5 v5.0.0-20220201181537-ed2888cfa198
 	github.com/nicksnyder/go-i18n/v2 v2.2.1
+	github.com/pocketbase/dbx v1.7.0
 	github.com/pocketbase/pocketbase v0.8.0
 	github.com/rs/zerolog v1.27.0
+	github.com/spf13/cobra v1.6.1
 	github.com/stretchr/testify v1.8.1
 	go.beyondstorage.io/services/memory v0.4.0
 	go.beyondstorage.io/v5 v5.0.0
@@ -110,7 +113,6 @@ require (
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
 	github.com/kevinburke/go-bindata v3.22.0+incompatible // indirect
 	github.com/klauspost/compress v1.15.11 // indirect
-	github.com/labstack/echo/v5 v5.0.0-20220201181537-ed2888cfa198 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/mailgun/raymond/v2 v2.0.47 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
@@ -124,14 +126,13 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pelletier/go-toml v1.9.4 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/pocketbase/dbx v1.7.0 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20220927061507-ef77025ab5aa // indirect
+	github.com/robfig/cron/v3 v3.0.1 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/schollz/closestmatch v2.1.0+incompatible // indirect
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/spf13/cast v1.5.0 // indirect
-	github.com/spf13/cobra v1.6.1 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/tdewolff/minify/v2 v2.12.4 // indirect
 	github.com/tdewolff/parse/v2 v2.6.4 // indirect
@@ -155,6 +156,7 @@ require (
 	golang.org/x/mod v0.7.0 // indirect
 	golang.org/x/net v0.2.0 // indirect
 	golang.org/x/oauth2 v0.2.0 // indirect
+	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/sys v0.2.0 // indirect
 	golang.org/x/term v0.2.0 // indirect
 	golang.org/x/text v0.4.0 // indirect

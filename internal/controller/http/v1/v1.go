@@ -3,9 +3,8 @@ package v1
 import (
 	"github.com/TcMits/ent-clean-template/pkg/infrastructure/logger"
 	"github.com/pocketbase/pocketbase"
+	"github.com/pocketbase/pocketbase/core"
 )
-
-const _v1SubPath = "/api/v1"
 
 func NewHandler() *pocketbase.PocketBase {
 	handler := pocketbase.New()
@@ -27,14 +26,9 @@ func NewHandler() *pocketbase.PocketBase {
 // @host localhost:8080
 // @BasePath /api/v1
 func RegisterV1HTTPServices(
-	handler *pocketbase.PocketBase,
+	handler core.App,
 	// adding more usecases here
 	// logger
 	l logger.Interface,
 ) {
-
-	// HTTP middlewares
-	// routes
-	{
-	}
 }
