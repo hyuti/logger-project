@@ -4,5 +4,6 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+go run main.go migrate up --dir=$DATA_DIR
 go run main.go createadmin --dir=$DATA_DIR
 air -c .air.toml

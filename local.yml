@@ -8,7 +8,7 @@ services:
         image: logger_golang_dev
         container_name: logger_golang_dev
         volumes:
-            - .:/ent-clean-template:z
+            - .:/app:z
         env_file:
             - ./.envs/.local/.golang
         command: /start
