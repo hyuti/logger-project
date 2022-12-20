@@ -12,7 +12,8 @@ import (
 )
 
 func registerHook(s *gocron.Scheduler, handler core.App, projName string, amountToDel int, l logger.Interface, cfg *config.Config) {
-	s.Every(cfg.Schedule.Period).Seconds().Do(func() {
+	startAfter1Hour := time.Now().UTC().Add(time.Hour)
+	s.Every(cfg.Schedule.Period).Seconds().StartAt(startAfter1Hour).Do(func() {
 		l.Info("Running %s task...", projName)
 		collection, _ := handler.Dao().FindCollectionByNameOrId(projName)
 		query := handler.Dao().RecordQuery(collection).
