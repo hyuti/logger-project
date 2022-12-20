@@ -1,12 +1,14 @@
 version: "3.7"
 
 services:
-    golang:
+    logger-golang:
         build:
             context: .
             dockerfile: ./compose/production/golang/Dockerfile
-        image: golang
+        container_name: logger_golang
         env_file:
             - ./.envs/.production/.golang
+        command: /start
         ports:
             - 8080:8080
+
