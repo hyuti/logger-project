@@ -18,7 +18,7 @@ require (
 	github.com/nicksnyder/go-i18n/v2 v2.2.1
 	github.com/pocketbase/dbx v1.8.0
 	github.com/pocketbase/pocketbase v0.10.1
-	github.com/rs/zerolog v1.27.0
+	github.com/rs/zerolog v1.28.0
 	github.com/spf13/cobra v1.6.1
 	github.com/stretchr/testify v1.8.1
 	go.beyondstorage.io/services/memory v0.4.0
