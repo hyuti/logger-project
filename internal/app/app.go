@@ -11,7 +11,6 @@ import (
 	"github.com/TcMits/ent-clean-template/internal/hook"
 	"github.com/pocketbase/pocketbase/core"
 
-	_ "github.com/TcMits/ent-clean-template/migrations"
 	"github.com/TcMits/ent-clean-template/pkg/infrastructure/logger"
 )
 
