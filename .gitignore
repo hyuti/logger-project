@@ -29,6 +29,8 @@ testdata/
 ent-clean-template
 *.log
 
+.envs/.production/*
+!.envs/.production/*.sample
 
 # local data
 .data/
