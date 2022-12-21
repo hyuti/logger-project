@@ -15,12 +15,12 @@ admin:
 
 the_hill_admin:
   name: 'the_hill_admin'
-  amount: 10
+  amount: 100
 
 the_hill_customer:
   name: 'the_hill_customer'
-  amount: 10
+  amount: 500
 
 the_hill_store:
   name: 'the_hill_store'
-  amount: 10
+  amount: 500
