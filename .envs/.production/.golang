@@ -1,6 +1,0 @@
-HTTP_PORT=8080
-USERNAME=admin@gmail.com
-PASSWORD=This is a very strong password
-DATA_DIR=./.data
-SCHEDULE_PERIOD=3600
-
