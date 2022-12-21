@@ -46,18 +46,15 @@ type (
 	}
 
 	TheHillAdminProject struct {
-		Name           string `env-required:"true" yaml:"name" env:"THE_HILL_ADMIN_NAME"`
-		AmountToDelete int    `env-required:"true" yaml:"amount" env:"THE_HILL_ADMIN_AMOUNT_TO_DELETE"`
+		Name string `env-required:"true" yaml:"name" env:"THE_HILL_ADMIN_NAME"`
 	}
 
 	TheHillCustomerProject struct {
-		Name           string `env-required:"true" yaml:"name" env:"THE_HILL_CUSTOMER_NAME"`
-		AmountToDelete int    `env-required:"true" yaml:"amount" env:"THE_HILL_CUSTOMER_AMOUNT_TO_DELETE"`
+		Name string `env-required:"true" yaml:"name" env:"THE_HILL_CUSTOMER_NAME"`
 	}
 
 	TheHillStoreProject struct {
-		Name           string `env-required:"true" yaml:"name" env:"THE_HILL_STORE_NAME"`
-		AmountToDelete int    `env-required:"true" yaml:"amount" env:"THE_HILL_STORE_AMOUNT_TO_DELETE"`
+		Name string `env-required:"true" yaml:"name" env:"THE_HILL_STORE_NAME"`
 	}
 )
 
