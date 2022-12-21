@@ -3,8 +3,8 @@ package base
 import (
 	"fmt"
 
-	"github.com/TcMits/ent-clean-template/internal/collection/permission"
-	"github.com/TcMits/ent-clean-template/pkg/infrastructure/logger"
+	"github.com/hyuti/logger-project/internal/collection/permission"
+	"github.com/hyuti/logger-project/pkg/infrastructure/logger"
 	"github.com/pocketbase/pocketbase/core"
 	"github.com/pocketbase/pocketbase/forms"
 	"github.com/pocketbase/pocketbase/models"

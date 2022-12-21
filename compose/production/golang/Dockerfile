@@ -23,8 +23,10 @@ RUN apt-get update \
 
 WORKDIR /
 
+COPY ./compose/production/golang/start /start
+RUN sed -i 's/\r$//g' /start && chmod +x /start
+
 COPY --from=builder /bin/app /app
 COPY --from=builder /app/config /config
-COPY --from=builder /app/locales /locales
 
-CMD ["/app"]
+CMD ["/start"]

@@ -1,9 +1,9 @@
 package cmd
 
 import (
-	"github.com/TcMits/ent-clean-template/cmd/createuser"
-	"github.com/TcMits/ent-clean-template/config"
-	"github.com/TcMits/ent-clean-template/pkg/infrastructure/logger"
+	"github.com/hyuti/logger-project/cmd/createuser"
+	"github.com/hyuti/logger-project/config"
+	"github.com/hyuti/logger-project/pkg/infrastructure/logger"
 	"github.com/pocketbase/pocketbase"
 	"github.com/spf13/cobra"
 )

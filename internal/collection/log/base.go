@@ -1,9 +1,9 @@
 package log
 
 import (
-	"github.com/TcMits/ent-clean-template/config"
-	"github.com/TcMits/ent-clean-template/internal/collection/base"
-	"github.com/TcMits/ent-clean-template/internal/collection/permission"
+	"github.com/hyuti/logger-project/config"
+	"github.com/hyuti/logger-project/internal/collection/base"
+	"github.com/hyuti/logger-project/internal/collection/permission"
 	"github.com/pocketbase/pocketbase/models/schema"
 	"github.com/pocketbase/pocketbase/tools/types"
 )

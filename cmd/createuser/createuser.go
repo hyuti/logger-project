@@ -3,7 +3,7 @@ package createuser
 import (
 	"fmt"
 
-	"github.com/TcMits/ent-clean-template/config"
+	"github.com/hyuti/logger-project/config"
 	"github.com/pocketbase/pocketbase/core"
 	"github.com/pocketbase/pocketbase/forms"
 	"github.com/pocketbase/pocketbase/models"
@@ -24,10 +24,12 @@ func CreateUser(app core.App, cfg *config.Config) func(*cobra.Command, []string)
 		if err != nil {
 			fmt.Printf("error creating admin: %s\n", err)
 		}
+
 		form := forms.NewAdminUpsert(app, admin)
 		form.Email = cfg.Admin.Username
 		form.Password = cfg.Admin.Password
 		form.PasswordConfirm = cfg.Admin.Password
+
 		err = form.Submit()
 
 		if err != nil {

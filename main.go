@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/TcMits/ent-clean-template/config"
-	"github.com/TcMits/ent-clean-template/internal/app"
+	"github.com/hyuti/logger-project/config"
+	"github.com/hyuti/logger-project/internal/app"
 )
 
 func main() {

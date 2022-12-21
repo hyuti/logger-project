@@ -1,10 +1,10 @@
 package collection
 
 import (
-	"github.com/TcMits/ent-clean-template/config"
-	"github.com/TcMits/ent-clean-template/internal/collection/log"
-	valLog "github.com/TcMits/ent-clean-template/internal/collection/validation/log"
-	"github.com/TcMits/ent-clean-template/pkg/infrastructure/logger"
+	"github.com/hyuti/logger-project/config"
+	"github.com/hyuti/logger-project/internal/collection/log"
+	valLog "github.com/hyuti/logger-project/internal/collection/validation/log"
+	"github.com/hyuti/logger-project/pkg/infrastructure/logger"
 	"github.com/labstack/echo/v5"
 	"github.com/pocketbase/pocketbase/core"
 	"github.com/pocketbase/pocketbase/models"
